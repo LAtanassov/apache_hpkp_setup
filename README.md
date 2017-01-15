@@ -22,7 +22,8 @@ Create two certificates
 ### Create Certificate 
 Create two self signed Certificate with the following shell command and different names
 ```sh
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./certificate/server.key -out ./certificate/server.crt
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+-keyout ./certificate/server.key -out ./certificate/server.crt
 ```
 
 ## Setup Apache 2.4 as docker file
@@ -42,6 +43,11 @@ Create an own Apache Configration file based on the default in ./config/httpd.co
 Include @rel_sysconfdir@/extra/httpd-ssl.conf
 ```
 
+## Build & Run Docker Image
+```sh
+$ docker build -t hello-hpkp .
+$ docker run -dit -p 80:80 -p 443:443 hello-hpkp
+```
 
 
 ## References
