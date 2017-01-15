@@ -75,6 +75,16 @@ $ docker build -t hello-hpkp .
 $ docker run -dit -p 80:80 -p 443:443 hello-hpkp
 ```
 
+## Test
+At first start the docker images as configured and open on https://localhost the index.html site. Your browser now pinned this certificates and will not allow other ones for the time define in the max-age property (in our case 600 seconds).
+
+Shutdown the docker container and change in the Dockerfile the certificates to
+```txt
+COPY ./certificate/badone.crt /usr/local/apache2/conf/server.crt
+COPY ./certificate/badone.key /usr/local/apache2/conf/server.key
+```
+Rebuild and start the docker images.
+The next time you try to open the https://localhost the browser should warn you that something is wrong and someone maybe tries to fool you.
 
 ## References
 - [Apache Docker Installation and Configuration](https://hub.docker.com/_/httpd/)
