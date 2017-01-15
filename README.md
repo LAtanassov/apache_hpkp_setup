@@ -77,5 +77,5 @@ $ docker run -dit -p 80:80 -p 443:443 hello-hpkp
 
 
 ## References
-[Apache Docker Installation and Configuration]: https://hub.docker.com/_/httpd/
-[HTTP Public Key Pinning Extension HPKP for Apache, NGINX and Lighttpd]: https://raymii.org/s/articles/HTTP_Public_Key_Pinning_Extension_HPKP.html
+[Apache Docker Installation and Configuration](https://hub.docker.com/_/httpd/)
+[HTTP Public Key Pinning Extension HPKP for Apache, NGINX and Lighttpd](https://raymii.org/s/articles/HTTP_Public_Key_Pinning_Extension_HPKP.html)
